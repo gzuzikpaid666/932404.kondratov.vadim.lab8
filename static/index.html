@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Портфолио проектов</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">К содержимому</a>
+  <header class="top">
+    <h1>Портфолио проектов</h1>
+    <button class="btn primary" id="add" type="button">Добавить проект</button>
+  </header>
+
+  <main id="main">
+    <div class="tabs" role="tablist" aria-label="Разделы">
+      <button role="tab" id="tab-projects" aria-controls="panel-projects" aria-selected="true">Проекты</button>
+      <button role="tab" id="tab-stack" aria-controls="panel-stack" aria-selected="false" tabindex="-1">Технологии</button>
+    </div>
+
+    <section role="tabpanel" id="panel-projects" aria-labelledby="tab-projects">
+      <div class="tools" role="search">
+        <label class="field grow"><span>Поиск по названию</span><input type="search" id="q" autocomplete="off"></label>
+        <label class="field"><span>Сортировка</span>
+          <select id="sort"><option value="date_desc">Сначала новые</option><option value="date_asc">Сначала старые</option></select>
+        </label>
+        <div class="seg" role="group" aria-label="Вид списка">
+          <button type="button" data-view="grid" aria-pressed="true">Сетка</button>
+          <button type="button" data-view="list" aria-pressed="false">Список</button>
+        </div>
+      </div>
+      <div class="filters" role="group" aria-labelledby="tags-label">
+        <span id="tags-label">Стек</span><span id="tags" class="chips"></span>
+        <button class="linkbtn" id="reset" type="button" hidden>Сбросить фильтры</button>
+      </div>
+      <p id="count" role="status"></p>
+      <ul id="list" class="cards grid"></ul>
+    </section>
+
+    <section role="tabpanel" id="panel-stack" aria-labelledby="tab-stack" hidden>
+      <p class="hint">Выберите технологию, чтобы увидеть проекты с ней.</p>
+      <ul id="stack" class="chips big"></ul>
+    </section>
+  </main>
+
+  <dialog id="dlg" aria-labelledby="dlg-title">
+    <form id="form">
+      <h2 id="dlg-title"></h2>
+      <label class="field"><span>Название</span><input name="title" required maxlength="100"></label>
+      <label class="field"><span>Описание</span><textarea name="description" rows="4" maxlength="1000"></textarea></label>
+      <label class="field"><span>Стек (через запятую)</span><input name="tech_stack" maxlength="200" placeholder="Python, FastAPI"></label>
+      <label class="field"><span>Ссылка</span><input name="link" type="url" maxlength="300" placeholder="https://"></label>
+      <label class="field"><span>Дата</span><input name="date" type="date" required></label>
+      <p id="err" role="alert"></p>
+      <div class="actions">
+        <button type="button" class="btn" id="cancel">Отмена</button>
+        <button type="submit" class="btn primary">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="del" aria-labelledby="del-title">
+    <form method="dialog">
+      <h2 id="del-title">Удалить проект?</h2>
+      <p id="del-name"></p>
+      <div class="actions">
+        <button class="btn" value="cancel">Отмена</button>
+        <button class="btn danger" value="ok">Удалить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

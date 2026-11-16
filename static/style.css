@@ -1,0 +1,53 @@
+:root{--bg:#e9eef1;--ink:#10202c;--muted:#4a5b68;--line:#c3cfd7;--card:#fff;--accent:#1f4fd8;--danger:#b42318;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+*{box-sizing:border-box}
+body{margin:0;padding:0 1rem 3rem}
+header.top,main{max-width:68rem;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding:2rem 0 1rem}
+h1{margin:0;font-size:clamp(1.9rem,5vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+h2,h3{margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.5rem;z-index:9}
+button,input,select,textarea{font:inherit;color:inherit}
+.btn,.seg button,.chip{cursor:pointer;border:1.5px solid var(--ink);background:#fff;border-radius:8px;padding:.5rem .9rem;min-height:2.5rem}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn.danger{background:var(--danger);border-color:var(--danger);color:#fff;font-weight:600}
+.btn:hover{background:#f2f5f8}.btn.primary:hover{background:#173fb0}.btn.danger:hover{background:#8f1c12}
+.tabs{display:flex;gap:1.5rem;border-bottom:1.5px solid var(--line);margin-bottom:1.25rem}
+.tabs [role=tab]{background:none;border:0;border-bottom:3px solid transparent;padding:.6rem 0;font-weight:600;color:var(--muted);cursor:pointer}
+.tabs [aria-selected=true]{color:var(--ink);border-color:var(--accent)}
+.tools{display:flex;flex-wrap:wrap;gap:.75rem;align-items:end}
+.field{display:flex;flex-direction:column;gap:.25rem;font-size:.9rem;color:var(--muted);margin-bottom:.75rem}
+.tools .field{margin:0}.grow{flex:1 1 14rem}
+input,select,textarea{border:1.5px solid var(--line);border-radius:8px;padding:.5rem .65rem;background:#fff;min-height:2.5rem;width:100%}
+.seg{display:flex}.seg button{border-radius:0}.seg button:first-child{border-radius:8px 0 0 8px}.seg button:last-child{border-radius:0 8px 8px 0;border-left:0}
+.seg [aria-pressed=true]{background:var(--ink);color:#fff}
+.filters{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:1rem 0 .25rem}
+.filters>span:first-child{font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}
+.chip{border-radius:999px;padding:.25rem .8rem;min-height:2rem;font-size:.9rem}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff}
+.chips.big .chip{font-size:1rem;min-height:2.5rem}
+.linkbtn{background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer;padding:.25rem}
+#count,.hint{color:var(--muted);font-size:.9rem;margin:.5rem 0 1rem}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.cards.grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,18rem),1fr))}
+.card article{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.1rem;height:100%;display:flex;flex-direction:column;gap:.6rem}
+.card h3{font-size:1.25rem;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.card time{color:var(--muted);font-size:.875rem}
+.card p{margin:0;max-width:65ch}
+.card .chips{margin-top:auto}
+.card .actions{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:.7rem}
+.actions .btn{min-height:2.25rem;padding:.25rem .8rem}
+.card a{color:var(--accent);margin-right:auto}
+.cards.list .card article{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1.25rem}
+.cards.list .card .body{flex:1 1 22rem;display:flex;flex-direction:column;gap:.4rem}
+.cards.list .card .chips{margin-top:0}
+.cards.list .card .actions{border:0;padding:0}
+.empty{background:#fff;border:1.5px dashed var(--line);border-radius:12px;padding:2rem;text-align:center;grid-column:1/-1}
+dialog{border:0;border-radius:14px;padding:1.5rem;width:min(92vw,30rem);box-shadow:0 20px 60px rgba(16,32,44,.35)}
+dialog::backdrop{background:rgba(16,32,44,.55)}
+dialog h2{margin-bottom:1rem}
+dialog .actions{display:flex;justify-content:flex-end;gap:.6rem;margin-top:1rem}
+#err{color:var(--danger);margin:0;min-height:1.5em}
+@media (prefers-reduced-motion:no-preference){.card article{transition:border-color .15s}.card article:hover{border-color:var(--ink)}}
